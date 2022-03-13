@@ -1,12 +1,8 @@
 from mpmath import mp
-import os
 import sys
-sys.path.append(f"{os.getcwd()}")
-
-mp.dps = 10000
 
 
-def chudnovsky(iters=1 << 8):
+def chudnovsky(iters=pow(10, 3)):
     summation = 0
     for i in range(iters):
         num = mp.fac(6 * i) * (545140134 * i + 13591409)
@@ -20,9 +16,10 @@ def chudnovsky(iters=1 << 8):
 
 
 if __name__ == "__main__":
-    from evaluate import *
+    sys.path.append("..")
+    from evaluate import evaluate
+    mp.dps = 10000
 
     pi = chudnovsky()
 
-    correct = len(evaluate(str(pi)))
-    print(f"{correct} correct digits!")
+    print(evaluate(pi))

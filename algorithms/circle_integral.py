@@ -2,15 +2,15 @@ from mpmath import mp
 import sys
 
 
-def gaussian_integral():
-    return mp.quad(lambda x: mp.exp(-x ** 2), [-mp.inf, mp.inf]) ** 2
+def circle_integral():
+    return mp.quad(lambda x: mp.sqrt(1 - x**2), [0, 1]) * 4
 
 
 if __name__ == "__main__":
     sys.path.append("..")
     from evaluate import evaluate
-    mp.dps = 150
+    mp.dps = 1000
 
-    pi = gaussian_integral()
+    pi = circle_integral()
     print(pi)
     print(evaluate(pi))

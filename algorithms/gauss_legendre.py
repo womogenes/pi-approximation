@@ -1,8 +1,5 @@
-from evaluate import *
 from mpmath import mp, mpf
-import os
 import sys
-sys.path.append(f"{os.getcwd()}")
 
 
 def get_pi(a, b, t):
@@ -29,7 +26,10 @@ def gauss_legendre(iters=16):
 
 
 if __name__ == "__main__":
-    mp.dps = 64
+    sys.path.append("..")
+    from evaluate import evaluate
+    mp.dps = 100000
 
     pi = gauss_legendre()
-    print(pi)
+    print(str(pi)[:100] + "...")
+    print(evaluate(pi))
