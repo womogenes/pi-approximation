@@ -1,19 +1,18 @@
+from evaluate import *
+import os
+from tabulate import tabulate
+from mpmath import mp
 import sys
 sys.path.append("algorithms")
 
-from mpmath import mp
 mp.dps = 128
 
-from tabulate import tabulate
-
-import os
-
-from evaluate import *
 
 # Terrible way to import things
 algos = os.listdir("./algorithms")
 for algo in algos:
-    if algo == "__pycache__": continue
+    if algo == "__pycache__":
+        continue
     exec(f"from {algo[:-3]} import *")
 
 # Read from file
@@ -30,4 +29,5 @@ methods = {
 
 values = [[name, evaluate(str(methods[name]()))] for name in methods]
 
-print(tabulate(values, headers=["Method", "Value"], tablefmt="github", disable_numparse=True))
+print(tabulate(values, headers=["Method", "Value"],
+      tablefmt="github", disable_numparse=True))

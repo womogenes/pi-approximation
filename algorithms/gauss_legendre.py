@@ -1,12 +1,13 @@
+from evaluate import *
+from mpmath import mp, mpf
 import os
 import sys
 sys.path.append(f"{os.getcwd()}")
 
-from mpmath import mp, mpf
-from evaluate import *
 
 def get_pi(a, b, t):
     return (a + b) ** 2 / (4 * t)
+
 
 def gauss_legendre(iters=16):
     a = 1
@@ -25,6 +26,7 @@ def gauss_legendre(iters=16):
         cur = get_pi(a, b, t)
 
     return get_pi(a, b, t)
+
 
 if __name__ == "__main__":
     mp.dps = 64
