@@ -1,8 +1,8 @@
-from decimal import Decimal, getcontext
+from mpmath import mp
 import sys
 
 
-def chudnovsky(iters=pow(10, 5)):
+def chudnovsky(iters=pow(10, 3)):
     summation = 0
     for i in range(iters):
         num = mp.fac(6 * i) * (545140134 * i + 13591409)
@@ -16,7 +16,8 @@ def chudnovsky(iters=pow(10, 5)):
 
 
 if __name__ == "__main__":
-    getcontext().prec = pow(10, 5)
-    pi = chudnovsky()
+    sys.path.append("..")
+    from evaluate import evaluate
+    mp.dps = 10000
 
-    print(pi)
+    print(evaluate(pi))

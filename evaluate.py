@@ -13,7 +13,7 @@ def evaluate(pi_approx):
     i = 0
     approx_str = str(pi_approx)
 
-    while i < len(pi_str) and approx_str[i] == pi_str[i]:
+    while i < len(approx_str) and approx_str[i] == pi_str[i]:
         i += 1
 
     return i - 1

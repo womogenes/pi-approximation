@@ -1,8 +1,8 @@
+from mpmath import mp, mpf
 import sys
-from decimal import Decimal, getcontext
 
 
-def leibniz(iters=pow(10, 6)):
+def leibniz(iters=pow(10, 5)):
     s = 0
     for i in range(iters):
         s += Decimal(-1) ** i / (2 * i + 1)
@@ -11,9 +11,9 @@ def leibniz(iters=pow(10, 6)):
 
 
 if __name__ == "__main__":
-    getcontext().prec = 10
     sys.path.append("..")
     from evaluate import evaluate
+    mp.dps = 20
 
     pi = leibniz()
     print(pi)
