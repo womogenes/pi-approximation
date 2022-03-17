@@ -28,7 +28,7 @@ def gauss_legendre(iters=16):
 if __name__ == "__main__":
     sys.path.append("..")
     from evaluate import evaluate
-    mp.dps = 100000
+    mp.dps = 1000000
 
     pi = gauss_legendre()
     print(str(pi)[:100] + "...")

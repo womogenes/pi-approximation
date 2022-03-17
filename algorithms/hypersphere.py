@@ -13,7 +13,7 @@ def hypersphere(iters=pow(10, 6)):
         if x**2 + y**2 + z**2 + w**2 <= 1:
             inside += 1
 
-    return mp.sqrt(inside / iters * 2) * 4
+    return mp.sqrt(inside / iters * 32)
 
 
 if __name__ == "__main__":

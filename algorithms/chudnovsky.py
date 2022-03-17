@@ -20,4 +20,6 @@ if __name__ == "__main__":
     from evaluate import evaluate
     mp.dps = 10000
 
+    pi = chudnovsky()
+
     print(evaluate(pi))

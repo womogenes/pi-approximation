@@ -2,10 +2,10 @@ from mpmath import mp, mpf
 import sys
 
 
-def leibniz(iters=pow(10, 5)):
+def leibniz(iters=pow(10, 6)):
     s = 0
     for i in range(iters):
-        s += Decimal(-1) ** i / (2 * i + 1)
+        s += mpf(-1) ** i / (2 * i + 1)
 
     return s * 4
 

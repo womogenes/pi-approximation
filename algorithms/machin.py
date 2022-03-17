@@ -1,6 +1,5 @@
 from mpmath import mp, mpf, power
 import sys
-import random
 
 
 def arctan(x, terms=pow(10, 5)):
